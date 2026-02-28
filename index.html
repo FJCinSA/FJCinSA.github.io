@@ -125,7 +125,7 @@
   /* ── Cards ── */
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
     max-width: 900px;
@@ -247,8 +247,8 @@
   }
 
   /* ── Mobile ── */
-  @media (max-width: 600px) {
-    .cards { grid-template-columns: 1fr; max-width: 380px; }
+  @media (max-width: 900px) {
+    .cards { grid-template-columns: 1fr; max-width: 480px; }
     header { margin-bottom: 40px; }
   }
 </style>
@@ -274,7 +274,7 @@
     </a>
 
     <a class="card" href="https://fjcinsa.github.io/sudoku-tutor/">
-      <div class="card-icon">♟</div>
+      <div class="card-icon">♞</div>
       <div class="card-label">Play</div>
       <div class="card-title">SudokuLab · Tutor</div>
       <div class="card-desc">Five difficulty levels with a built-in tutor. Get real-time hints, candidate tracking, and step-by-step guidance as you solve.</div>
