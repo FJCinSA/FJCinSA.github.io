@@ -126,10 +126,13 @@
   /* ── Cards ── */
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
     width: 100%;
-    max-width: 900px;
+    max-width: 520px;
+  }
+  @media (min-width: 1300px) {
+    .cards { grid-template-columns: repeat(3, 1fr); max-width: 1050px; }
   }
 
   .card {
@@ -472,6 +475,11 @@
 <script src="daily_puzzle.js"></script>
 <script>
 (function() {
+  function initDaily() {
+    if (typeof DailyPuzzle === 'undefined') {
+      setTimeout(initDaily, 50);
+      return;
+    }
   const today = DailyPuzzle.getToday();
 
   // Date and badge
@@ -502,6 +510,8 @@
   }
   tick();
   setInterval(tick, 1000);
+  } // end initDaily
+  initDaily();
 })();
 </script>
 
