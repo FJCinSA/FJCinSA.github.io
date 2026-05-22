@@ -301,8 +301,8 @@ function Build-HotasXProfile {
         (New-ActionXml -ActionName 'KEY_AXIS_RIGHT_BRAKE_SET'   -Flag 2)
 
         # ── BUTTON BINDINGS (Flag=8194) ───────────────────────────────────────
-        # Trigger (Button 0) – hold 2 seconds → toggle parking brake
-        (New-ActionXml -ActionName 'KEY_PARKING_BRAKE_SET'      -Flag 8194 -KeyCode 0   -KeyInfo 'Joystick Button 1'  -Delay 2.0)
+        # Trigger (Button 0) → toggle parking brake
+        (New-ActionXml -ActionName 'KEY_PARKING_BRAKES'         -Flag 8194 -KeyCode 0   -KeyInfo 'Joystick Button 1')
         # Thumb button (Button 1) – max brakes (both)
         (New-ActionXml -ActionName 'KEY_BRAKES'                 -Flag 8194 -KeyCode 1   -KeyInfo 'Joystick Button 2')
         # Button 2 – flaps retract one step
@@ -321,11 +321,11 @@ function Build-HotasXProfile {
         (New-ActionXml -ActionName 'KEY_COCKPIT_CAMERA_TOGGLE'  -Flag 8194 -KeyCode 8   -KeyInfo 'Joystick Button 9')
         # Button 9 – pause simulation
         (New-ActionXml -ActionName 'KEY_PAUSE_TOGGLE'           -Flag 8194 -KeyCode 9   -KeyInfo 'Joystick Button 10')
-        # POV hat – quick views
-        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW1'     -Flag 8194 -KeyCode 256 -KeyInfo 'Joystick Pov Up'    -Delay 2.0)
-        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW2'     -Flag 8194 -KeyCode 258 -KeyInfo 'Joystick Pov Down'  -Delay 2.0)
-        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW3'     -Flag 8194 -KeyCode 257 -KeyInfo 'Joystick Pov Left'  -Delay 2.0)
-        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW4'     -Flag 8194 -KeyCode 259 -KeyInfo 'Joystick Pov Right' -Delay 2.0)
+        # POV hat – quick views (instant, no delay)
+        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW1'     -Flag 8194 -KeyCode 256 -KeyInfo 'Joystick Pov Up')
+        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW2'     -Flag 8194 -KeyCode 258 -KeyInfo 'Joystick Pov Down')
+        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW3'     -Flag 8194 -KeyCode 257 -KeyInfo 'Joystick Pov Left')
+        (New-ActionXml -ActionName 'KEY_COCKPIT_QUICKVIEW4'     -Flag 8194 -KeyCode 259 -KeyInfo 'Joystick Pov Right')
     ) -join "`n"
 
     return @"
@@ -518,8 +518,8 @@ function Build-BravoProfile {
         # The Bravo gear lever has UP/DOWN switch positions.
         # C172 is fixed-gear so these are mapped to toggle for completeness
         # (useful if you fly retractable variants too).
-        (New-ActionXml -ActionName 'KEY_GEAR_UP'                   -Flag 8194 -KeyCode 0   -KeyInfo 'Joystick Button 1'  -Delay 2.0)
-        (New-ActionXml -ActionName 'KEY_GEAR_DOWN'                 -Flag 8194 -KeyCode 1   -KeyInfo 'Joystick Button 2'  -Delay 2.0)
+        (New-ActionXml -ActionName 'KEY_GEAR_UP'                   -Flag 8194 -KeyCode 0   -KeyInfo 'Joystick Button 1')
+        (New-ActionXml -ActionName 'KEY_GEAR_DOWN'                 -Flag 8194 -KeyCode 1   -KeyInfo 'Joystick Button 2')
     ) -join "`n"
 
     return @"
