@@ -134,7 +134,8 @@ $ErrorActionPreference = 'Stop'
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Destination folder for the generated XML files
-$OutputFolder = Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'MSFS2024-C172-Profiles'
+# Using Desktop to avoid OneDrive sync conflicts with the Documents folder
+$OutputFolder = Join-Path $env:USERPROFILE 'Desktop\MSFS2024-C172-Profiles'
 
 # Deadzone for flight control axes (0 = no deadzone; raise to ~5-10 if your
 # stick has centre wobble).  Range: 0–100.
@@ -559,9 +560,7 @@ Write-Host ''
 # ── Create output directory ──────────────────────────────────────────────────
 Write-Step 'Creating output folder ...'
 try {
-    if (-not (Test-Path $OutputFolder)) {
-        New-Item -ItemType Directory -Path $OutputFolder -Force | Out-Null
-    }
+    [System.IO.Directory]::CreateDirectory($OutputFolder) | Out-Null
     Write-Ok "Output folder: $OutputFolder"
 } catch {
     Write-Error "Failed to create output folder '$OutputFolder': $_"
